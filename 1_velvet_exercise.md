@@ -1,7 +1,10 @@
 # Velvet practical
 
-We will first experiment a bit with velvet to see how various factors
-can affect an assembly
+Velvet is one of the firt assembly programs that was created for short read data.
+It is not frequently used today and is generally known for producing fragmented
+assemblies. However, one benefit with velvet is that it is a very fast program.
+We will thus first experiment a bit with velvet to see how various factors
+can affect an assembly.
 
 
 ## Class exercise
@@ -14,7 +17,7 @@ In this first exercise, we will:
 * see how we can evaluate an assembly
 * figure out what is the best k-mer value for this data set
 
-### Data setup
+### Data structure setup
 
 First, log on to the server, and go "home".
 
@@ -40,13 +43,42 @@ We will now create a "shortcut" to the data that we will be working on.
 
 ```
 cd rawdata
-ln -s XXXX .
+ln -s /work/IN-BIOSx/data/assembly/* .
 ```
 
-When you now do `ls`, you will see three files there. Two are MiSeq files, and
-the last one is a Nanopore data set. These are sequenced from the same isolate.
+When you now do `ls`, you will see nine files there. These files are all from
+the same _E. coli_ isolate.
 
-### A first velvet assembly
+MiSeq files:
+* SRR10015223 - Full MiSeq files
+* SRR10015223_?_1mill - a 1 million reads subsample of the full MiSeq files
+* SRR10015223_?_1mill_mut - we need a slight fix in the header for one program,
+this has been fixed for these files
+
+Nanopore:
+* SRR10015224 - the full nanopore sequence set
+* SRR10015224_400k - a downsampled version of the one above
+
+In addition there is a `perl` program that we will use during the exercises.
+
+### Use of velvet
+
+Velvet consists of two different programs:
+
+* `velveth` - this program creates the index of the reads based on the value of **k**
+* `velvetg` - this program builds the graph from the k-mers produced by `velveth`
+and outputs the contigs.
+
+
+
+### A first velvet assembly - testing out the values of **k**
+
+Velvet is a `de Bruijn` assembler. Thus, it is quite sensitive to the value
+of **k**. We will first experiment and figure out what value is best for this
+dataset.
+
+Note, the reads in question are 150 bp long. The value of **k* must be shorter
+than that, and it has to be an odd number.
 
 First, go to where we will do the assemblies:
 
@@ -57,8 +89,9 @@ mkdir velvet
 cd velvet
 ```
 
-Look [in this google spreadsheet](XXXX), find a value of *k*, and record your
-choice in the spreadsheet. Run `velveth` to build the hash index (see below).
+Look [in this google spreadsheet](https://docs.google.com/spreadsheets/d/14fuw7fXjBp3A8xCUXmmwkJBb9E-r2B-jqi_Q3Aq6RrQ/edit?usp=sharing),
+find a value of *k*, and record your choice in the spreadsheet. Run
+`velveth` to build the hash index (see below).
 
 `velveth` options:
 
@@ -136,24 +169,26 @@ The important files are:
 * What is the size of the largest contig? (in basespace, not in k-mer space)
 * How many contigs are there in the `contigs.fa` file? Use `grep -c NODE contigs.fa`. Is this the same number as velvet reported?
 
-Log your results in this google spreadsheet.
+Log your results in the google spreadsheet.
 
 **We will discuss the results together and determine *the optimal* k-mer for
 this dataset.**
 
 FROM NOW ON: keep track of the values that velvet reports on your own!
 
-
-### Assembly 1: Optimal k-mer assembly
-
-You will now create your own assembly with using this optimal k-mer. For all
-assemblies for here on out, use this k-mer size.
-
 ## Group exercise
 
 From now on, you will work in teams of three. Each of you will run one of the
 subsequent assemblies, and keep track of your results. The teacher will drop
 in on your sessions, and you can ask questions via Mattermost.
+
+In order to keep track of who is doing what, please fill in
+[this Google spreadsheet](https://docs.google.com/spreadsheets/d/1Av_T9Tm3b_o_PIcdSmSAUarfzci7IYpXI9nrn0r4daA/edit?usp=sharing).
+
+### Assembly 1: Optimal k-mer assembly
+
+You will now create your own assembly with using this optimal k-mer. Use the
+commands shown above. For all assemblies for here on out, use this k-mer size.
 
 ### Assembly 2: Estimating and setting `exp_cov`
 
@@ -162,11 +197,46 @@ for unique regions of your genome. This allows it to try and resolve repeats.
 The data to determine this is in the `stats.txt` file. The full description of
 this file is [in the Velvet Manual](http://www.ebi.ac.uk/~zerbino/velvet/Manual.pdf).
 
-XXXXXXX  find a command line way of showing a histogram
+First, we will have a look at the file and figure out how it works.
+
+```
+less -S stats.txt
+```
+
+Here you see wh the cntent of the file is. Have a look at the manual to figure
+out what the fields are.
+
+Press `q` to finish looking at the file.
+
+Next, we will fetch the `short1_cov` column and extract that. We will also
+sort it, so that we see how high the coverage goes.
+
+```
+cat stats.txt |awk '{print $6}' |sort -n
+```
+
+You will notice that there is one node (contig) with very high coverage. We will plot this as a histogram. Having one very high number when making a
+histogram will just squish things. Thus we need to filter that out. We wil
+do that by sending the results to the `grep` command.
+
+```
+ cat stats.txt |awk '{print $6}' |grep -v NUMBER |sort -n
+```
+
+Put the coverage number you found in instead of NUMBER in the command above.
+
+Then we will plot the histogram.
+
+```
+cat stats.txt |awk '{print $6}' |grep -v NUMBER | ../../rawdata/hist.pl
+```
+
 
 **Question:**
 
 * What do you think is the approximate expected k-mer coverage for your assembly?
+
+Stop here, we will discuss things together here.
 
 Now run velvet again, supplying the value for `exp_cov` (k-mer coverage)
 corresponding to your answer:
@@ -245,10 +315,20 @@ for the paired library.
 * How does doing this affect the assembly?
 * What does velvet say about the insert size of the paired end library?
 
+### Scaffold and contig metrics
 
-XXXXX Assembly stats
+The sequences in the contigs.fa file are actually scaffolds. We will use the
+program `assembly-stats` to generate metrics for this, and all following assemblies.
 
-### Looking for repeats XXXX - fiddle to figoure out what to search for
+```
+assembly-stats -t contigs.fa
+```
+
+Run this command on all of the assemblies you have created so far, and report
+them in the spreadsheet.
+
+
+### Looking for repeats
 
 Have a look for contigs which are long and have a much higher coverage than
 the average for your genome. One tedious way to do this is to look into
@@ -266,18 +346,18 @@ Relevant columns are:
 
 
 Knowing this, we can use the `awk` command to select lines for contigs at
-least 1kb, with k-mer coverage greater than 60:
+least 1kb, with k-mer coverage greater than 100:
 
 ```
-awk '($2>=1000 && $6>=60)' stats.txt
+awk '($2>=1000 && $6>=100)' stats.txt
 ```
 
 `awk` is an amazing program for tabular data. In this case, we ask it to check
 that column 2 ($2, the length) is at least 1000 and column 6 ($6, coverage) at
-least 60. If this is the case, awk will print the entire line. See
+least 100. If this is the case, awk will print the entire line. See
 [http://bit.ly/QjbWr7](http://bit.ly/QjbWr7) for more information on awk.
 
-Find the contig with the highest coverage in the `contigs.fa` file. Perform a
+Find the contigs with the highest coverage in the `contigs.fa` file. Perform a
 BLAST search using NCBI. Look at the `Graphics` results to see what is in the
 region of the results that you got.
 
