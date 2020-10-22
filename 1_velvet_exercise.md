@@ -230,8 +230,6 @@ cat stats.txt |awk '{print $6}' |grep -v NUMBER | ../../rawdata/hist.pl
 
 * What do you think is the approximate expected k-mer coverage for your assembly?
 
-Stop here, we will discuss things together here.
-
 Now run velvet again, supplying the value for `exp_cov` (k-mer coverage)
 corresponding to your answer:
 
