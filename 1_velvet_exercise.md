@@ -114,8 +114,9 @@ velveth ASM_NAME VALUE_OF_K \
 * Change `ASM_NAME` to a directory name of your choosing
 * Change `VALUE_OF_K` to the value you have picked
 * The command is split over several lines by adding a space, and a `\`
-(backslash) to each line. This trick makes long commands more readable. If you
-want, you can write the whole command on one line instead.
+(backslash) to each line. This trick makes long commands more readable.
+Sometimes copy pasting will not work, it is best to write in the command
+yourself.
 
 After `velveth` is finished, use `ls` to look in the new folder that has the
 name you chose. You should see the following files:
@@ -176,14 +177,7 @@ this dataset.**
 
 FROM NOW ON: keep track of the values that velvet reports on your own!
 
-## Group exercise
 
-From now on, you will work in teams of three. Each of you will run one of the
-subsequent assemblies, and keep track of your results. The teacher will drop
-in on your sessions, and you can ask questions via Mattermost.
-
-In order to keep track of who is doing what, please fill in
-[this Google spreadsheet](https://docs.google.com/spreadsheets/d/1Av_T9Tm3b_o_PIcdSmSAUarfzci7IYpXI9nrn0r4daA/edit?usp=sharing).
 
 ### Assembly 1: Optimal k-mer assembly
 
@@ -248,6 +242,15 @@ velvetg ASM_NAME -exp_cov PEAK_K_MER_COVERAGE
 **Question:**
 
 * What improvements do you see in the assembly by setting a value for `exp_cov`?
+
+## Group exercise
+
+From now on, you will work in teams of three. Each of you will run one of the
+subsequent assemblies, and keep track of your results. The teacher will drop
+in on your sessions, and you can ask questions via Mattermost.
+
+In order to keep track of who is doing what, please fill in
+[this Google spreadsheet](https://docs.google.com/spreadsheets/d/1Av_T9Tm3b_o_PIcdSmSAUarfzci7IYpXI9nrn0r4daA/edit?usp=sharing).
 
 ### Assembly 3: Setting `cov_cutoff`
 
