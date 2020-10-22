@@ -1,6 +1,6 @@
 # Velvet practical
 
-Velvet is one of the firt assembly programs that was created for short read data.
+Velvet is one of the first assembly programs that was created for short read data.
 It is not frequently used today and is generally known for producing fragmented
 assemblies. However, one benefit with velvet is that it is a very fast program.
 We will thus first experiment a bit with velvet to see how various factors
@@ -77,7 +77,7 @@ Velvet is a `de Bruijn` assembler. Thus, it is quite sensitive to the value
 of **k**. We will first experiment and figure out what value is best for this
 dataset.
 
-Note, the reads in question are 150 bp long. The value of **k* must be shorter
+Note, the reads in question are 150 bp long. The value of **k** must be shorter
 than that, and it has to be an odd number.
 
 First, go to where we will do the assemblies:
@@ -106,8 +106,8 @@ Build the index as follows:
 ```
 velveth ASM_NAME VALUE_OF_K \  
 -short -separate -fastq \  
-../rawdata/SRR7896249_1.fastq \
-../rawdata/SRR7896249_2.fastq
+../rawdata/SRR10015223_1_1mill.fastq \
+../rawdata/SRR10015223_2_1mill.fastq
 ```
 **NOTES**
 
