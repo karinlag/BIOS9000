@@ -303,8 +303,8 @@ related options set to auto.
 ```
 velveth ASM_NAME2 VALUE_OF_K \  
 -shortPaired -fastq -separate \  
-../rawdata/SRR7896249_1.fastq \
-../rawdata/SRR7896249_2.fastq
+../rawdata/SRR10015223_1_1mill.fastq \
+../rawdata/SRR10015223_2_1mill.fastq
 
 velvetg ASM_NAME2 -exp_cov auto -cov_cutoff auto  
 ```
