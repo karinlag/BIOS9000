@@ -14,13 +14,13 @@ This course is run on infrastructure provided by the University of Oslo.
 * Lecture: quick intro to assembly with velvet
 * Class activity: a first velvet assembly
 * Class activity: assembly statistics discussion
-* Group activity: Starting SPAdes, Unicycler and Flye assemblies
+* Group activity: Starting  Unicycler
 
 ### Day 2
-* Lecture: on SPAdes, Flye and Unicycle
-* Group activity: comparing assemblies - velvet and SPAdes
-* Group activity: SPAdes, Flye and Unicycler assembly
-* Class activity: assembly statistics
-* Lecture: assembly evaluation
+* Group activity: starting SPAdes and Flye assemblers
+* Lecture: on SPAdes, Flye and Unicycler
+* Class activity: evaluation without a reference
 * Break
+* Lecture: Comparing to a reference 
+* Class activity: comparing assemblies - velvet and SPAdes
 * Group activity: comparing assemblies with quast
