@@ -17,7 +17,7 @@ When running QUAST, we can look at one or more assemblies at the time.
 * `--rna-finding`: tell the program to find rRNAs
 * `-1/2`: path to the reads.
 * `-G`: File with positions of genes in the reference (see manual)
-* `-T`: number of threads (cpu's) to use
+* `-t`: number of threads (cpu's) to use
 * `sequence.fasta`: one or more files with assembled sequences
 * `-l`:  comma-separated list of names for the assemblies, e.g. `"assembly 1,
 assembly 2"` (in the same order as the sequence files)
@@ -44,6 +44,7 @@ fasta files).
 
 ```
 quast -o allthree \
+-t 5 \
 --glimmer \
 -1 ../rawdata/SRR10015223_1_1mill_mut.fastq \
 -2 ../rawdata/SRR10015223_2_1mill_mut.fastq \
