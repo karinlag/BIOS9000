@@ -61,7 +61,7 @@ See [this quick guide on screen usage](0_tech.md)
 
 ```
 spades.py -t 4 --careful --cov-cutoff auto -m 5 \
--1 ../rawdata/SRR7896249_1.fastq \
--2 ../rawdata/SRR7896249_2.fastq \
+-1 ../rawdata/SRR10015223_1_1mill.fastq \
+-2 ../rawdata/SRR10015223_1_1mill.fastq \
 -o spades_miseq &> spades_miseq.log
 ```
