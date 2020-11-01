@@ -38,5 +38,5 @@ named `flye`. Go into that directory.
 * Then, run the following command:
 
 ```
-flye --nano-raw ../rawdata/SRR10015224_400 -o flye -t 8 &> flye.log
+flye --nano-raw ../rawdata/SRR10015224_400k.fastq -o flye -t 8 &> flye.log
 ```
