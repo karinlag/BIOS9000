@@ -5,7 +5,7 @@
 After logging in, and also after having started a screen below, do the
 following:
 
-`source IN-BIOS9000-software-load`
+`module load IN-BIOS5000/HT-2022`
 
 
 
@@ -31,3 +31,19 @@ before `pts` is what I refer to below.
 To connect to a specific screen, type in `screen -DR <number>`.
 
 For more, [check out this link](https://www.tecmint.com/screen-command-examples-to-manage-linux-terminals/)
+
+## Using nodes
+
+For doing the actual assemblies, we will ask you to log into some interactive
+compute nodes to run stuff. This is done by using a command called `ssh`, like
+this:
+
+`ssh int-X`
+
+where X is a number. 
+
+You will then be asked for the authentication number again, and your password.
+
+
+
+
