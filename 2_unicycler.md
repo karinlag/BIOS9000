@@ -58,9 +58,9 @@ Then, we run the assembly using:
 
 ```
 unicycler \
--1 ../rawdata/SRR10015223_1_1mill.fastq \
--2 ../rawdata/SRR10015223_2_1mill.fastq \
--l ../rawdata/SRR10015224_400k.fastq \
+-1 ../rawdata/SRR10015223_1_1mill.fastq.gz \
+-2 ../rawdata/SRR10015223_2_1mill.fastq.gz \
+-l ../rawdata/SRR10015224.fastq.gz \
 -o hybrid --verbosity 2 -t 8 &> hybrid.log
 ```
 
