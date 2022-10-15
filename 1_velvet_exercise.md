@@ -93,8 +93,7 @@ mkdir velvet
 cd velvet
 ```
 
-!! update the doc
-Look [in this google spreadsheet](https://docs.google.com/spreadsheets/d/14fuw7fXjBp3A8xCUXmmwkJBb9E-r2B-jqi_Q3Aq6RrQ/edit?usp=sharing),
+Look [in this google spreadsheet](https://docs.google.com/spreadsheets/d/1U8g2GjB-YNw-DSj2YAcJBweekQegFrOIhS1uKM7RYBQ/edit?usp=sharing),
 find a value of *k*, and record your choice in the spreadsheet. Run
 `velveth` to build the hash index (see below).
 
