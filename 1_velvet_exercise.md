@@ -36,7 +36,6 @@ Then: create a directory for the assembly exercise.
 ```
 mkdir assembly
 cd assembly
-mkdir rawdata
 ```
 
 We will now create a "shortcut" to the data that we will be working on.
@@ -59,7 +58,13 @@ Nanopore:
 * SRR10015224 - the full nanopore sequence set
 * SRR10015224_400k - a downsampled version of the one above
 
-In addition there is a `perl` program that we will use during the exercises.
+## A note on servers
+
+We need to be on one if the int-computers to run the assemblers. Thus,
+remember to do the following before proceeding:
+
+- log into an int-server
+- activate the software
 
 ### Use of velvet
 
@@ -68,7 +73,6 @@ Velvet consists of two different programs:
 * `velveth` - this program creates the index of the reads based on the value of **k**
 * `velvetg` - this program builds the graph from the k-mers produced by `velveth`
 and outputs the contigs.
-
 
 
 ### A first velvet assembly - testing out the values of **k**
@@ -89,6 +93,7 @@ mkdir velvet
 cd velvet
 ```
 
+!! update the doc
 Look [in this google spreadsheet](https://docs.google.com/spreadsheets/d/14fuw7fXjBp3A8xCUXmmwkJBb9E-r2B-jqi_Q3Aq6RrQ/edit?usp=sharing),
 find a value of *k*, and record your choice in the spreadsheet. Run
 `velveth` to build the hash index (see below).
@@ -104,10 +109,10 @@ find a value of *k*, and record your choice in the spreadsheet. Run
 Build the index as follows:
 
 ```
-velveth ASM_NAME VALUE_OF_K \  
--short -separate -fastq \  
-../rawdata/SRR10015223_1_1mill.fastq \
-../rawdata/SRR10015223_2_1mill.fastq
+velveth ASM_NAME VALUE_OF_K \
+-short -separate -fastq \
+../rawdata/SRR10015223_1_1mill.fastq.gz \
+../rawdata/SRR10015223_2_1mill.fastq.gz
 ```
 **NOTES**
 
@@ -189,7 +194,7 @@ commands shown above. For all assemblies for here on out, use this k-mer size.
 Much better assemblies are produced if Velvet understands the expected coverage
 for unique regions of your genome. This allows it to try and resolve repeats.
 The data to determine this is in the `stats.txt` file. The full description of
-this file is [in the Velvet Manual](http://www.ebi.ac.uk/~zerbino/velvet/Manual.pdf).
+this file is [in the Velvet Manual](https://github.com/dzerbino/velvet/blob/master/Manual.pdf).
 
 First, we will have a look at the file and figure out how it works.
 
@@ -197,7 +202,7 @@ First, we will have a look at the file and figure out how it works.
 less -S stats.txt
 ```
 
-Here you see wh the cntent of the file is. Have a look at the manual to figure
+Here you see what the cntent of the file is. Have a look at the manual to figure
 out what the fields are.
 
 Press `q` to finish looking at the file.
@@ -244,11 +249,22 @@ velvetg ASM_NAME -exp_cov PEAK_K_MER_COVERAGE
 ## Group exercise
 
 From now on, you will work in teams of three. Each of you will run one of the
-subsequent assemblies, and keep track of your results. The teacher will drop
-in on your sessions, and you can ask questions via Mattermost.
+subsequent assemblies, and keep track of your results.
 
 In order to keep track of who is doing what, please fill in
 [this Google spreadsheet](https://docs.google.com/spreadsheets/d/1Av_T9Tm3b_o_PIcdSmSAUarfzci7IYpXI9nrn0r4daA/edit?usp=sharing).
+
+
+### Scaffold and contig metrics
+
+The sequences in the contigs.fa file are actually scaffolds. We will use the
+program `assembly-stats` to generate metrics for the following assemblies.
+
+```
+assembly-stats -t contigs.fa
+```
+
+Run this command on the three assemblies you will be doing.
 
 ### Assembly 3: Setting `cov_cutoff`
 
@@ -315,18 +331,6 @@ for the paired library.
 
 * How does doing this affect the assembly?
 * What does velvet say about the insert size of the paired end library?
-
-### Scaffold and contig metrics
-
-The sequences in the contigs.fa file are actually scaffolds. We will use the
-program `assembly-stats` to generate metrics for this, and all following assemblies.
-
-```
-assembly-stats -t contigs.fa
-```
-
-Run this command on all of the assemblies you have created so far, and report
-them in the spreadsheet.
 
 
 ### Looking for repeats
