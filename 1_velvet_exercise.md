@@ -223,11 +223,8 @@ do that by sending the results to the `grep` command.
 
 Put the coverage number you found in instead of NUMBER in the command above.
 
-Then we will plot the histogram.
-
-```
-cat stats.txt |awk '{print $6}' |grep -v NUMBER | ../../rawdata/hist.pl
-```
+Then this can be plotted as a histogram. A graph of it can be seen in the
+spreadsheet above. 
 
 
 **Question:**
@@ -251,7 +248,7 @@ From now on, you will work in teams of three. Each of you will run one of the
 subsequent assemblies, and keep track of your results.
 
 In order to keep track of who is doing what, please fill in
-[this Google spreadsheet](https://docs.google.com/spreadsheets/d/1Av_T9Tm3b_o_PIcdSmSAUarfzci7IYpXI9nrn0r4daA/edit?usp=sharing).
+[this Google spreadsheet](https://docs.google.com/spreadsheets/d/1U8g2GjB-YNw-DSj2YAcJBweekQegFrOIhS1uKM7RYBQ/edit?usp=sharing).
 
 
 ### Scaffold and contig metrics
