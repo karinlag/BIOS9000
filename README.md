@@ -23,4 +23,5 @@ This course is run on infrastructure provided by the University of Oslo.
 * Break
 * Lecture: Comparing to a reference 
 * Class activity: comparing assemblies - velvet and SPAdes
-* Group activity: comparing assemblies with quast
+* Group activity: comparing spades, flye, unicycler assemblies with quast
+* Class activity: error correcting with pilon, and comparing with quast
