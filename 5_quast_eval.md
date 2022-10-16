@@ -81,7 +81,7 @@ Go to the `assembly/quast` folder. Run this command.
 
 ```
 quast -o allthree \
--t 5 \
+-t 8 \
 --glimmer \
 -1 ../rawdata/SRR10015223_1_1mill_mut.fastq.gz \
 -2 ../rawdata/SRR10015223_2_1mill_mut.fastq.gz \
