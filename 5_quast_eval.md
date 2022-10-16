@@ -36,18 +36,34 @@ Then link in the reference data:
 ln -s /work/IN-BIOSx/data/assembly/GCA* .
 ```
 
-### Running Quast
+### Class activity: comparing velvet and spades. 
 
-Go to the `assembly` folder, make a folder called `quast` and move into it.
-Run this command (this is for one assembly, for examining more, add the assembly
-fasta files).
+Go to the `assembly` folder, make a folder called `quast` and move into it. Run this command:
+
+```
+quast -o spades_velvet \
+-t 8 \
+--glimmer \
+-1 ../rawdata/SRR10015223_1_1mill_mut.fastq \
+-2 ../rawdata/SRR10015223_2_1mill_mut.fastq \
+-r ../rawdata/GCA_012098105.1_PDT000380306.1_genomic.fna \
+-g ../rawdata/GCA_012098105.1_PDT000380306.1_genomic.gff \
+PATH/TO/SPADES_ASM \
+PATH/TO/VELVET_ASM \
+-l "spades, velvet"
+```
+
+
+### Group activity: comparing all three assemblies
+
+Go to the `assembly/quast` folder. Run this command.
 
 ```
 quast -o allthree \
 -t 5 \
 --glimmer \
--1 ../rawdata/SRR10015223_1_1mill_mut.fastq \
--2 ../rawdata/SRR10015223_2_1mill_mut.fastq \
+-1 ../rawdata/SRR10015223_1_1mill_mut.fastq.gz \
+-2 ../rawdata/SRR10015223_2_1mill_mut.fastq.gz \
 -r ../rawdata/GCA_012098105.1_PDT000380306.1_genomic.fna \
 -g ../rawdata/GCA_012098105.1_PDT000380306.1_genomic.gff \
 PATH/TO/SPADES_ASM \
