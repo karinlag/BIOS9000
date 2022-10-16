@@ -58,9 +58,9 @@ cd bwa
 Then do the mapping:
 
 ```
-bwa mem -t 5 ../ASSEMBLY.FASTA \
-../../../rawdata/SRR10015223_1_1mill_mut.fastq \
-../../../rawdata/SRR10015223_2_1mill_mut.fastq \
+bwa mem -t 8 ../ASSEMBLY.FASTA \
+../../../rawdata/SRR10015223_1_1mill_mut.fastq.gz \
+../../../rawdata/SRR10015223_2_1mill_mut.fastq.gz \
 | samtools view -buS - | samtools sort - -o hybrid_ilm.sorted.bam
 ```
 
@@ -68,8 +68,8 @@ Explanation of some of the parameters:
 
 * `../` means 'look in the folder one level up', i.e. where the fasta file and
 its index files are
-* `-t 5`tells `bwa mem` to use 5 threads (cpus)
-* `-buS`tells `samtools view` that the input is in SAM format (`S`) and to
+* `-t n` tells `bwa mem` to use n threads (cpus)
+* `-buS` tells `samtools view` that the input is in SAM format (`S`) and to
 output uncompressed (`u`) BAM format (`b`).
 * the `-` for both `samtools` commands indicate that instead of using a file
 as input, the input comes from a pipe (technically, from 'standard in', or
@@ -78,7 +78,7 @@ as input, the input comes from a pipe (technically, from 'standard in', or
 
 Note: the difference between the mut files and the regular files is just that
 the read names in the "normal" look like this: `@SRR10015223.1066259.2`, while
-this in the mut files look like this: `@SRR10015223.1066259/2`. The first part
+this in the mut files look like this: `@SRR10015223.1066259 2`. The first part
 is then the name of the SRA project, then the read name, then whether the read
 is number 1 or 2 in the pair.  
 
@@ -101,8 +101,8 @@ Mapping long reads works pretty much the same as the short reads, but we
 need some extra options.
 
 ```
-bwa mem -t 5 -x ont2d ../ASSEMBLY.FASTA \
-../../../rawdata/SRR10015224_400k.fastq | \
+bwa mem -t 8 -x ont2d ../ASSEMBLY.FASTA \
+../../../rawdata/SRR10015224_400k.fastq.gz | \
 samtools view -buS - | \
 samtools sort - -o hybrid_nano.sorted.bam
 ```
