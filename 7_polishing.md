@@ -46,11 +46,7 @@ samtools index flye.bam
 
 Now that we have the bam file, we can do the correction.
 
-Go one level up. First we need to set the memory for pilon, like we did earlier:
-
-```
-export _JAVA_OPTIONS='-Xmx12G'
-```
+Go one level up. 
 
 Then we start `pilon`:
 
