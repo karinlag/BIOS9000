@@ -30,9 +30,9 @@ cd bwa
 Then we will do the actual mapping.
 
 ```
-bwa mem -t 5 ../assembly.fasta \
-../../../rawdata/SRR10015223_1_1mill_mut.fastq \
-../../../rawdata/SRR10015223_2_1mill_mut.fastq \
+bwa mem -t 8 ../assembly.fasta \
+../../../rawdata/SRR10015223_1_1mill_mut.fastq.gz \
+../../../rawdata/SRR10015223_2_1mill_mut.fastq.gz \
 | samtools view -buS - | samtools sort - -o flye.bam
 ```
 
@@ -55,7 +55,7 @@ export _JAVA_OPTIONS='-Xmx12G'
 Then we start `pilon`:
 
 ```
-pilon --threads 5 \
+java -Xmx8G -jar $EBROOTPILON/pilon.jar \
 --genome assembly.fasta \
 --bam bwa/flye.bam \
 --changes --vcfqe &> flye_pilon.log
