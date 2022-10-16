@@ -52,25 +52,6 @@ PATH/TO/SPADES_ASM \
 PATH/TO/VELVET_ASM \
 -l "spades, velvet"
 ```
-
-
-### Group activity: comparing all three assemblies
-
-Go to the `assembly/quast` folder. Run this command.
-
-```
-quast -o allthree \
--t 5 \
---glimmer \
--1 ../rawdata/SRR10015223_1_1mill_mut.fastq.gz \
--2 ../rawdata/SRR10015223_2_1mill_mut.fastq.gz \
--r ../rawdata/GCA_012098105.1_PDT000380306.1_genomic.fna \
--g ../rawdata/GCA_012098105.1_PDT000380306.1_genomic.gff \
-PATH/TO/SPADES_ASM \
-PATH/TO/FLYE_ASM \
-PATH/TO/UNICYCLER_ASM \
--l "spades, flye, unicycler"
-```
 Note that the `--scaffold` option is not used here for simplification. Also,
 if there are multiple assemblies being compared, make sure you name the
 assemblies (`-l`) in the same order as you give them to quast!
@@ -93,3 +74,23 @@ Click on the "Icarus contig browser"
   * Can you figure out what each of the panels show?
   * Can you see regions of your reference that are not in the assemblies?
   * Can you figure out what the various contig colors mean?
+
+### Group activity: comparing all three assemblies
+
+Go to the `assembly/quast` folder. Run this command.
+
+```
+quast -o allthree \
+-t 5 \
+--glimmer \
+-1 ../rawdata/SRR10015223_1_1mill_mut.fastq.gz \
+-2 ../rawdata/SRR10015223_2_1mill_mut.fastq.gz \
+-r ../rawdata/GCA_012098105.1_PDT000380306.1_genomic.fna \
+-g ../rawdata/GCA_012098105.1_PDT000380306.1_genomic.gff \
+PATH/TO/SPADES_ASM \
+PATH/TO/FLYE_ASM \
+PATH/TO/UNICYCLER_ASM \
+-l "spades, flye, unicycler"
+```
+
+Answer the same kinds of questions here as you did for the velvet vs spades comparison.
