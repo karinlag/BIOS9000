@@ -102,7 +102,7 @@ need some extra options.
 
 ```
 bwa mem -t 8 -x ont2d ../ASSEMBLY.FASTA \
-../../../rawdata/SRR10015224_400k.fastq.gz | \
+../../../rawdata/SRR10015224.fastq.gz  | \
 samtools view -buS - | \
 samtools sort - -o hybrid_nano.sorted.bam
 ```
