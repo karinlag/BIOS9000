@@ -38,18 +38,18 @@ mkdir assembly
 cd assembly
 ```
 
-We will now create a "shortcut" to the data that we will be working on.
+We will now copy the data that we will be working on.
 
 ```
 cd rawdata
-ln -s /work/IN-BIOSx/data/assembly/* .
+cp /projects/ec34/in-biosx000/assembly/rawdata/* .
 ```
 
-When you now do `ls`, you will see nine files there. These files are all from
+When you now do `ls`, you will see 10 files there. These files are all from
 the same _E. coli_ isolate.
 
 MiSeq files:
-* SRR10015223 - Full MiSeq files
+* SRR10015223_? - Full MiSeq files
 * SRR10015223_?_1mill - a 1 million reads subsample of the full MiSeq files
 * SRR10015223_?_1mill_mut - we need a slight fix in the header for one program,
 this has been fixed for these files
@@ -57,6 +57,10 @@ this has been fixed for these files
 Nanopore:
 * SRR10015224 - the full nanopore sequence set
 * SRR10015224_400k - a downsampled version of the one above
+
+Annotation files:
+* CA_012098105.1_PDT000380306.1_genomic.fna - genome reference file
+* CA_012098105.1_PDT000380306.1_genomic.gff - genome annotation file
 
 ## A note on servers
 
