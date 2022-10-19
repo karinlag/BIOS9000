@@ -35,8 +35,10 @@ named `flye`. Go into that directory.
 ### Running Flye
 
 * Start `screen`
+* Do module load of the software
 * Then, run the following command:
 
 ```
-flye --nano-raw ../rawdata/SRR10015224_400k.fastq -o flye -t 8 &> flye.log
+flye --nano-raw ../rawdata/SRR10015224.fastq.gz -o flye -t 16 &> flye.log
 ```
+
