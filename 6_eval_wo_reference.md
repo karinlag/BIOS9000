@@ -30,11 +30,11 @@ bwa index -a bwtsw ASSEMBLY.FASTA
 Replace `ASSEMBLY.FASTA` with the name of your fasta file. Run `ls` to check
 the results, you should see a couple of new files.
 
-For the visualization, you will also need to create an index file for your.
+For the visualization, you will also need to create an index file for your assembly.
 You can do that with this command:
 
 ```
-samtools faidx assembly.fasta
+samtools faidx ASSEMBLY.FASTA
 ```
 
 
