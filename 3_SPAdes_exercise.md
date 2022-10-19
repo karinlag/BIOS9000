@@ -60,8 +60,10 @@ See [this quick guide on screen usage](0_tech.md)
 * Then, enter the following command:
 
 ```
-spades.py -t 4 --isolate --cov-cutoff auto -m 10 \
--1 ../rawdata/SRR10015223_1_1mill.fastq \
--2 ../rawdata/SRR10015223_1_1mill.fastq \
+spades.py -t 16 --isolate --cov-cutoff auto -m 64 \
+-1 ../rawdata/SRR10015223_1.fastq.gz \
+-2 ../rawdata/SRR10015223_2.fastq.gz \
 -o spades_miseq &> spades_miseq.log
 ```
+
+
