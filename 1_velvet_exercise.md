@@ -261,7 +261,7 @@ The sequences in the contigs.fa file are actually scaffolds. We will use the
 program `assembly-stats` to generate metrics for the following assemblies.
 
 ```
-assembly-stats -t contigs.fa
+assembly-stats contigs.fa
 ```
 
 Run this command on the three assemblies you will be doing.
