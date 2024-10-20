@@ -2,12 +2,23 @@
 
 ## Loading software
 
-After logging in, and also after having started a screen below, do the
-following:
+After logging in, you will need software.
 
-`module load IN-BIOS5000/HT-2022`
+See the list here:
 
+https://uio-in-biosx000.readthedocs.io/en/latest/software.html
 
+You will have to load the individual modules per software to run.
+
+## Getting a compute session
+
+Quite frequently we will have to use slurm to run things. 
+
+The command to get an interactive session is the following:
+
+'salloc --ntasks=4 --mem-per-cpu=4G --time=03:00:00 --qos=devel --account=ec34'
+
+This will give you 4 cpus for 3 hours, with 20GB of memory.
 
 ## Using screen
 
