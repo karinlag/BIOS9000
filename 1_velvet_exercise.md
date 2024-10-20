@@ -41,6 +41,7 @@ cd assembly
 We will now copy the data that we will be working on.
 
 ```
+mkdir rawdata
 cd rawdata
 cp /projects/ec34/in-biosx000/assembly/rawdata/* .
 ```
