@@ -65,10 +65,10 @@ Annotation files:
 
 ## A note on servers
 
-We need to be on one if the int-computers to run the assemblers. Thus,
+We need to get a slurm allocation to run the assemblers. Thus,
 remember to do the following before proceeding:
 
-- log into an int-server
+- do a slurm allocation
 - activate the software
 
 ### Use of velvet
