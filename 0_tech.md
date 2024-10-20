@@ -16,9 +16,9 @@ Quite frequently we will have to use slurm to run things.
 
 The command to get an interactive session is the following:
 
-'salloc --ntasks=4 --mem-per-cpu=4G --time=03:00:00 --qos=devel --account=ec34'
+'salloc --ntasks=6 --mem-per-cpu=4G --time=02:00:00 --qos=devel --account=ec34'
 
-This will give you 4 cpus for 3 hours, with 20GB of memory.
+This will give you 4 cpus for 2 hours, with 20GB of memory.
 
 ## Using screen
 
