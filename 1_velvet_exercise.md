@@ -199,7 +199,7 @@ First, we will have a look at the file and figure out how it works.
 less -S stats.txt
 ```
 
-Here you see what the cntent of the file is. Have a look at the manual to figure
+Here you see what the content of the file is. Have a look at the manual to figure
 out what the fields are.
 
 Press `q` to finish looking at the file.
