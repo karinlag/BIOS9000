@@ -63,13 +63,6 @@ Annotation files:
 * CA_012098105.1_PDT000380306.1_genomic.fna - genome reference file
 * CA_012098105.1_PDT000380306.1_genomic.gff - genome annotation file
 
-## A note on servers
-
-We need to get a slurm allocation to run the assemblers. Thus,
-remember to do the following before proceeding:
-
-- do a slurm allocation
-- activate the software
 
 ### Use of velvet
 
