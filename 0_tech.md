@@ -10,16 +10,6 @@ https://uio-in-biosx000.readthedocs.io/en/latest/software.html
 
 You will have to load the individual modules per software to run.
 
-## Getting a compute session
-
-Quite frequently we will have to use slurm to run things. 
-
-The command to get an interactive session is the following:
-
-'salloc --ntasks=6 --mem-per-cpu=4G --time=02:00:00 --qos=devel --account=ec34'
-
-This will give you 4 cpus for 2 hours, with 20GB of memory.
-
 ## Using screen
 
 `screen` is a small program that will allow programs to keep running even if
