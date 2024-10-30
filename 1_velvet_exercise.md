@@ -246,7 +246,7 @@ From now on, you will work in teams of three. Each of you will run one of the
 subsequent assemblies, and keep track of your results.
 
 In order to keep track of who is doing what, please fill in
-[this Google spreadsheet](https://docs.google.com/spreadsheets/d/1U8g2GjB-YNw-DSj2YAcJBweekQegFrOIhS1uKM7RYBQ/edit?usp=sharing).
+[this Google spreadsheet](https://docs.google.com/spreadsheets/d/1UO73388818ig7OsfNaL0OEDrKU2BdlqH3VAxEqHeTbo/edit?usp=sharing).
 
 
 ### Scaffold and contig metrics
