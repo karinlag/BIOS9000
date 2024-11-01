@@ -27,14 +27,6 @@ at 10 N's or more to analyse contigs ('broken' assembly)
 [See the manual for information on the output of Quast]:
 (http://quast.sourceforge.net/docs/manual.html#sec3)
 
-### Getting the reference genomes
-
-First, go to the `assembly` folder, and then into the `rawdata` folder.
-Then link in the reference data:
-
-```
-ln -s /work/IN-BIOSx/data/assembly/GCA* .
-```
 
 ### Class activity: comparing velvet and spades. 
 
@@ -44,8 +36,8 @@ Go to the `assembly` folder, make a folder called `quast` and move into it. Run 
 quast -o spades_velvet \
 -t 8 \
 --glimmer \
--1 ../rawdata/SRR10015223_1_1mill_mut.fastq \
--2 ../rawdata/SRR10015223_2_1mill_mut.fastq \
+-1 ../rawdata/SRR10015223_1_1mill_mut.fastq.gz \
+-2 ../rawdata/SRR10015223_2_1mill_mut.fastq.gz \
 -r ../rawdata/GCA_012098105.1_PDT000380306.1_genomic.fna \
 -g ../rawdata/GCA_012098105.1_PDT000380306.1_genomic.gff \
 PATH/TO/SPADES_ASM \
