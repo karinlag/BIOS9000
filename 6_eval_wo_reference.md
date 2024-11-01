@@ -122,9 +122,7 @@ also the assembly fasta file.
 
 ### Visualising the assembly in a genome browser
 
-For this part, we will use Integrative Genomics Viewer (IGV), a genome browser
-developed by the Broad Institute. This program needs to be installed on your
-computer. Go [to this location, and download and install the program](https://software.broadinstitute.org/software/igv/download).
+For this part, we will use Integrative Genomics Viewer (IGV),  Go [here to access IGV](https://igv.org/app/).
 
 ### Loading the data
 
